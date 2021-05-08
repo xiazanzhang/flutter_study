@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_study/pages/masterhome/widget/bottom_app_bar.dart';
+import 'package:flutter_application_study/pages/masterhome/widget/tabs.dart';
 import 'package:flutter_application_study/widget/custom_page_view.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:dio/dio.dart';
@@ -206,18 +208,18 @@ class _MasterHomeState extends State<MasterHome> with TickerProviderStateMixin {
                   '服务次数: 20372次',
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
-                    fontSize: 12.sp,
+                    fontSize: 13.sp,
                     color: Colors.white,
                   ),
                 ),
               ),
               Container(
-                width: 120.w,
+                width: 140.w,
                 child: Text(
                   '近3个月投诉: 99次',
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
-                    fontSize: 12.sp,
+                    fontSize: 13.sp,
                     color: Colors.white,
                   ),
                 ),
@@ -238,18 +240,18 @@ class _MasterHomeState extends State<MasterHome> with TickerProviderStateMixin {
                   '好评率: 99.99%',
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
-                    fontSize: 12.sp,
+                    fontSize: 13.sp,
                     color: Colors.white,
                   ),
                 ),
               ),
               Container(
-                width: 120.w,
+                width: 140.w,
                 child: Text(
                   '完成好评返现: 666单',
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
-                    fontSize: 12.sp,
+                    fontSize: 13.sp,
                     color: Colors.white,
                   ),
                 ),
@@ -313,24 +315,24 @@ class _MasterHomeState extends State<MasterHome> with TickerProviderStateMixin {
           child: Row(
             children: [
               Container(
-                width: 120.w,
+                width: 130.w,
                 margin: EdgeInsets.only(right: 20.w),
                 child: Text(
                   '预约及时率：97.08%',
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
-                    fontSize: 12.sp,
+                    fontSize: 13.sp,
                     color: Colors.white,
                   ),
                 ),
               ),
               Container(
-                width: 120.w,
+                width: 140.w,
                 child: Text(
                   '订单核销率：100%',
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
-                    fontSize: 12.sp,
+                    fontSize: 13.sp,
                     color: Colors.white,
                   ),
                 ),
@@ -345,24 +347,24 @@ class _MasterHomeState extends State<MasterHome> with TickerProviderStateMixin {
           child: Row(
             children: [
               Container(
-                width: 120.w,
+                width: 130.w,
                 margin: EdgeInsets.only(right: 20.w),
                 child: Text(
                   '预约达成率：85.02%',
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
-                    fontSize: 12.sp,
+                    fontSize: 13.sp,
                     color: Colors.white,
                   ),
                 ),
               ),
               Container(
-                width: 120.w,
+                width: 140.w,
                 child: Text(
                   '按时完成率：99.39%',
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
-                    fontSize: 12.sp,
+                    fontSize: 13.sp,
                     color: Colors.white,
                   ),
                 ),
@@ -383,7 +385,7 @@ class _MasterHomeState extends State<MasterHome> with TickerProviderStateMixin {
       child: CustomPageView(
         viewportDirection: false,
         controller: PageController(
-          viewportFraction: 300 / 375,
+          viewportFraction: 320.w / 375.w,
         ),
         children: <Widget>[
           Container(
@@ -414,6 +416,7 @@ class _MasterHomeState extends State<MasterHome> with TickerProviderStateMixin {
     );
   }
 
+  /// 更多介绍模版
   _buildText(String title, String value) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -583,8 +586,7 @@ class _MasterHomeState extends State<MasterHome> with TickerProviderStateMixin {
         color: Color.fromRGBO(237, 241, 242, 1),
         child: Column(
           children: [
-            _buildTab(),
-            // _buildTabBarView(),
+            Tabs(),
           ],
         ),
       ),
@@ -595,71 +597,6 @@ class _MasterHomeState extends State<MasterHome> with TickerProviderStateMixin {
   void initState() {
     super.initState();
     print('初始化');
-  }
-
-  /// Tab
-  _buildTab() {
-    return Container(
-      width: 355.w,
-      height: 44.h,
-      margin: EdgeInsets.only(
-        top: 10.h,
-        bottom: 10.h,
-      ),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.all(
-          Radius.circular(8.w),
-        ),
-        boxShadow: [
-          BoxShadow(
-            color: Color.fromRGBO(75, 72, 73, 0.05),
-            offset: Offset(
-              0,
-              2.h,
-            ),
-            blurRadius: 5.h,
-          ),
-        ],
-      ),
-      child: TabBar(
-        indicatorSize: TabBarIndicatorSize.label,
-        indicatorWeight: 3.h,
-        labelColor: Color.fromRGBO(0, 0, 0, 1),
-        labelStyle: TextStyle(
-          fontSize: 15.sp,
-          color: Color.fromRGBO(0, 0, 0, 1),
-        ),
-        controller: TabController(
-          initialIndex: 0,
-          length: 2,
-          vsync: this,
-        ),
-        tabs: <Widget>[
-          Tab(
-            text: '大家对Ta的印象',
-          ),
-          Tab(
-            text: '服务完工照',
-          ),
-        ],
-      ),
-    );
-  }
-
-  _buildTabBarView() {
-    return Container(
-      child: TabBarView(
-        children: [
-          Center(
-            child: Text('大家对Ta的印象'),
-          ),
-          Center(
-            child: Text('服务完工照'),
-          ),
-        ],
-      ),
-    );
   }
 
   @override
@@ -698,71 +635,8 @@ class _MasterHomeState extends State<MasterHome> with TickerProviderStateMixin {
               ),
             ),
           ),
-          bottomNavigationBar: _MasterHomeBottomAppBar(),
+          bottomNavigationBar: MasterHomeBottomAppBar(),
         ),
-      ),
-    );
-  }
-}
-
-// 底部按钮区域
-class _MasterHomeBottomAppBar extends StatelessWidget {
-  _buildStarBtn(context) {
-    return Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Container(
-            margin: EdgeInsets.fromLTRB(0, 0, 0, 5.h),
-            child: Image(
-              image: AssetImage('images/master/icon_sc@2x.png'),
-              width: 15.w,
-              height: 15.h,
-            ),
-          ),
-          Text(
-            '收藏师傅',
-            style: TextStyle(
-              color: Color.fromRGBO(85, 87, 89, 1),
-              fontSize: 12.sp,
-            ),
-          ),
-        ]);
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: Colors.white,
-      height: 60.h,
-      child: ButtonBar(
-        alignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          _buildStarBtn(context),
-          TextButton(
-            onPressed: () {
-              print('联系他');
-            },
-            child: Text('指派他'),
-            style: ButtonStyle(
-              textStyle: MaterialStateProperty.all(
-                TextStyle(
-                  color: Colors.white,
-                  fontSize: 17.sp,
-                ),
-              ),
-              foregroundColor: MaterialStateProperty.all(
-                Colors.white,
-              ),
-              minimumSize: MaterialStateProperty.all(
-                Size(120.w, 44.h),
-              ),
-              backgroundColor: MaterialStateProperty.all(
-                Color.fromRGBO(10, 176, 237, 1),
-              ),
-            ),
-          ),
-        ],
       ),
     );
   }

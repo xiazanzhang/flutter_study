@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_study/pages/master.dart';
+import 'package:flutter_application_study/pages/masterhome/master.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 
 void main() {
   runApp(MyApp());
@@ -34,9 +33,6 @@ class MyApp extends StatelessWidget {
       ),
     );
   }
-
- 
-
 }
 
 class MyHomePage extends StatefulWidget {
