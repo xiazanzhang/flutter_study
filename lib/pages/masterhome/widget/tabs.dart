@@ -10,7 +10,7 @@ class Tabs extends StatefulWidget {
 class TabsState extends State<Tabs> {
   int tabIndex = 0;
 
-  final List<String> tablist = ['大家对Ta对印象', '师傅完工照'];
+  final List tablist = ['大家对Ta对印象', '师傅完工照'];
 
   void initState() {
     super.initState();
@@ -45,7 +45,26 @@ class TabsState extends State<Tabs> {
         children: <Widget>[
           Container(
             child: Row(
-              children: <Widget>[],
+              children: tablist.asMap().entries.map<Widget>((item) {
+                return Container(
+                  width: 177.5.w,
+                  height: 44.h,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        item.value,
+                        style: tabIndex == item.key
+                            ? TextStyle(fontSize: 15.sp, color: Colors.red)
+                            : TextStyle(
+                                fontSize: 15.sp,
+                                color: Color.fromRGBO(133, 137, 140, 1)),
+                      )
+                    ],
+                  ),
+                );
+              }).toList(),
             ),
           ),
           Container(
